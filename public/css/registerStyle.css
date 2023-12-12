@@ -1,0 +1,119 @@
+@import url(./baseStyle.css);
+/*  */
+.main {
+  display: flex;
+
+}
+
+.register {
+  display: flex;
+  /* width: 1440px; */
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-36);
+  padding: var(--spacing-36);
+}
+
+.regiter__title {
+  color: var(--dark-solid);
+  text-align: right;
+  font-family: var(--alternative-font);
+  font-size: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.68px;
+}
+
+.regiter__subtitle {
+  color: var(--dark-solid);
+  text-align: right;
+  font-family: var(--alternative-font);
+  font-size: var(--font-xlarge);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 1.28px;
+}
+
+.input__text {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid var(--primary-solid);
+  color: #b9b9b9;
+  text-align: left;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.64px;
+}
+
+.form {
+  display: grid;
+  grid-column: 1 / 6;
+  gap: 8px;
+  
+}
+
+.col-1 {
+  grid-column: 1 / 2;
+}
+
+.col-2 {
+  grid-column: 4 / 6;
+}
+
+.label {
+  color: var(--dark-solid);
+  font-family: var(--base-font);
+  font-size: var(--font-large);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.96px;
+}
+
+.check {
+  width: 16.275px;
+  height: 16.275px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  border: 2px solid var(--dark-solid);
+}
+
+.aceptoTerminos {
+  color: var(--dark-solid);
+  font-family: var(--base-font);
+  font-size: var(--font-medium);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.aceptoTerminos > b {
+  color: #1d84b5;
+  font-family: var(--base-font);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.submit {
+  border: none;
+  width: 102.995px;
+  height: 39.062px;
+  flex-shrink: 0;
+  background: #f33;
+  color: #fff;
+  font-family: var(--base-font);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

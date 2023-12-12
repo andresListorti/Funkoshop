@@ -1,0 +1,102 @@
+<%- include('../partials/header') -%> 
+  <!-- Inicio Main -->
+  <main class="shop container">
+    <aside class="filternav">
+      <ul class="filternav__items">
+        <li class="filtebar__item">
+          <h2 class="filternav_item_title">BUSCAR</h2>
+          <label>
+            <input type="text" id="buscar" name="buscar" class="input_general input_big"
+              placeholder="item o categoria" />
+          </label>
+        </li>
+        <li class="filtebar__item">
+          <h2 class="filternav_item_title">ORDENAR POR</h2>
+          <label>
+            <select id="ordenar" name="ordenar" class="input_general input_big">
+              <option value="" selected>Mayor a menor</option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+            </select>
+          </label>
+        </li>
+        <li class="filtebar__item">
+          <h2 class="filternav_item_title">PRECIO</h2>
+          <div class="item__range">
+            <label for="min">MIN</label>
+            <input id="min" name="min" class="input_general input_small" placeholder="0" />
+            <label for="">-</label>
+            <label for="max">MAX</label>
+            <input id="max" name="max" class="input_general input_small" placeholder="0" />
+          </div>
+          <br />
+        </li>
+        <li class="filtebar__item">
+          <h2 class="filternav_item_title">FILTRAR</h2>
+          <ul class="item_checkbox_items">
+            <li class="item_checkbox_item">
+              <input type="checkbox" name="filtrar" id="filtrar" value="nuevos">
+              <label for="filtrar">NUEVOS</label>
+            </li>
+            <li class="item_checkbox_item">
+              <input type="checkbox" name="filtrar" id="filtrar" value="ofertas">
+              <label for="filtrar">OFERTAS</label>
+            </li>
+            <li class="item_checkbox_item">
+              <input type="checkbox" name="filtrar" id="filtrar" value="edicionEspecial">
+              <label for="filtrar">EDICIÓN ESPECIAL</label>
+            </li>
+            <li class="item_checkbox_item">
+              <input type="checkbox" name="filtrar" id="filtrar" value="favoritos">
+              <label for="filtrar">FAVORITOS</label>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+    <section class="slider">
+      <section class="slider__items">
+        <% items.forEach( item => { %>
+        <article class="card-item">
+          <a class="card-item__link" href="/shop/item/<%= item.product_id%>">
+            <picture class="card-item__cover">
+              <span class="card-item__tag">Nuevo</span>
+              <img class="card-item__img--front"
+                src="../../img<%= item.image_front%>"
+                alt="SW Trooper 1"
+              />
+              <img class="card-item__img--back"
+                src="../../img<%= item.image_back%>"
+                alt="SW Trooper box"
+              />
+            </picture>
+            <div class="card-item__content">
+              <p class="card-item__licence"><%= item.licence_name%></p>
+              <h4 class="card-item__name"><%= item.product_name%></h4>
+              <p class="card-item__price"><%= item.price%></p>
+              <p class="card-item__promo"><%= item.dues%></p>
+            </div>
+          </a>
+        </article>
+        <% }); %>
+      </section>
+      <section class="paginate">
+        <button class="paginate__item"><img src="../../img/icons/minor_icon.svg" alt="Next"></button>
+        <button class="paginate__item item__selected">1</button>
+        <button class="paginate__item">2</button>
+        <button class="paginate__item">...</button>
+        <button class="paginate__item">9</button>
+        <button class="paginate__item">10</button>
+        <button class="paginate__item"><img src="../../img/icons/eldery_icon.svg" alt="Next"></button>
+      </section>
+    </section>
+  </main>
+  <!-- Fin Main -->
+
+  <%- include('../partials/footer') -%>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="/css/shopStyle.css">
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+@import url(./baseStyle.css);
+
+.admin {
+    max-width: 1126px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: var(--spacing-36);
+    margin-bottom: var(--spacing-36);
+    gap: var(--spacing-16);
+}
+
+.header__search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__search img {
+    width: 30.8px;
+    height: 30.76px;
+    margin-right: var(--spacing-16);
+}
+
+.header__search input {
+    width:529.76px;
+    height: 44.28px;
+    border-radius: 6px;
+    border: 2px solid var(--dark-bg-solid);
+    padding-left: var(--spacing-16);
+    font-weight: 500;
+    font-size: 20px
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+}
+
+.header__section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__section h1 {
+    font-family: var(--alternative-font);
+    font-weight: 700;
+    font-size: var(--font-jumbo);
+}
+
+.header__section div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-16);
+}
+
+.header__section div p{
+    font-size: var(--font-large);
+    font-weight: 700;
+}
+
+.header__section div button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+section article {
+    align-self: flex-end;
+    width: 1093.77px;
+}
+
+table {
+    width: 100%;
+    font-size: var(--font-large); 
+    line-height: 60.85px;
+}
+
+tr th:nth-child(1) {
+    text-align: center;
+}
+
+th {
+    font-weight: 700;
+    text-align: left;
+}
+
+tr td:nth-child(1) {
+    text-align: center;
+}
+
+td {
+    font-weight: 500;
+    height: 100%;
+    vertical-align: top;
+}
+
+tr td:nth-child(5) {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.btn-action {
+    width: 24.37px;
+    height: 25.09px;
+ 
+}
+
+.admin-table__btn-delete {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.admin-table__btn-delete  {
+    font-size: 28px;
+    padding-left: 10px;
+}
+
+.td_end{
+    display: flex;
+}

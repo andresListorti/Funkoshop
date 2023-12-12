@@ -1,0 +1,33 @@
+<%- include('../partials/header') -%>
+
+  <!-- Inicio Main -->
+  <main class="login container">
+    <h1>INGRESAR A MI CUENTA</h1>
+    <form action="/auth/login" method="POST" enctype="application/x-www-form-urlencoded" target="_self">
+      <div class="form__input">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="johndoe@correo.com" required/>
+      </div>
+      <div class="form__input">
+        <label for="pass">Contraseña:</label>
+        <input type="password" id="pass" name="pass" placeholder="●●●●●●●●●" required />
+      </div>
+      <div>
+        <input class="submit" type="submit" value="Ingresar" />
+        <label>
+          <input class="check" type="checkbox" id="recordarme" name="recordarme"/>Recordarme
+        </label>
+      </div>  
+      <a class="link" href="#">Olvidé mi contraseña</a>
+    </form>
+    <% if(view.error == 1) { %>
+      <p style="color: red">Usuario no reconocido, intente nuevamente</p>
+    <% } %>
+  </main>
+  <!-- Fin Main -->
+
+  <!-- Inicio Footer -->
+  <<%- include('../partials/footer') -%>
+</body>
+<link rel="stylesheet" href="/css/loginStyle.css">
+</html>

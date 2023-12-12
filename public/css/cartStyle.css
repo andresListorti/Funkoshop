@@ -1,0 +1,236 @@
+@import url(./baseStyle.css);
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-36);
+  margin: var(--spacing-68) auto;
+}
+
+.cart__title {
+  font-family: var(--alternative-font);
+  font-size: var(--font-jumbo);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  padding-bottom: var(--spacing-8);
+  border-bottom: 5px solid var(--primary-solid);
+  align-self: flex-end;
+}
+.cart h1:first-child {
+  align-self: flex-start;
+}
+
+/* Detail */
+.cart__detail {
+  width: 100%;
+}
+
+.cart__detail table {
+  width: 100%;
+  border-spacing: 0px var(--spacing-24);
+  border-radius: 5px;
+}
+
+.cart-detail__header{
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+.cart-detail__header th:nth-child(1){
+  width: 450px;
+}
+
+.cart-detail__header th{
+  height: 51px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cart-item {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.cart-item td{
+  padding: var(--spacing-36) 0px;
+}
+
+.cart-item td:first-child{
+  padding-left: var(--spacing-16);
+}
+
+.cart-item td:last-child{
+  padding-right: var(--spacing-16);
+}
+
+.cart-item td:nth-child(2),
+.cart-item td:nth-child(3) {
+  width: 25%; /* Ajusta el ancho según tus necesidades */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cart-item td:nth-child(4) {
+  width: 6%; /* Ajusta el ancho según tus necesidades */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cart-item__datail {
+  max-width: 410px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-20);
+}
+
+
+.item__info-title h2{
+  font-size: var(--font-large);
+}
+
+.item__info p{
+  font-size: var(--font-xsmall)
+}
+
+.item__img {
+  width: 118.762px;
+  height: 118px;
+  flex-shrink: 0;
+}
+
+
+
+/* Count */
+.cart-item__count {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-8); 
+}
+
+.cart-item__count input {
+  width: 89.479px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 0.5px solid #C9C9C9;
+  background: #FFF;
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.item__count-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  justify-content: space-between;
+}
+
+.item__count-actions button{
+  border: none;
+  display: flex;
+  width: 18px;
+  height: 16px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  background-color: #F24E1E;
+}
+
+.item__count-actions button img {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+/* Price */
+.item__price {
+  color: #333;
+font-family: Inter;
+font-size: 20px;
+font-weight: 400;
+}
+
+/* Action */
+.item__action {
+  transform: scale(0.5);
+}
+
+
+/* Suamry */
+.cart__sumary {
+  align-self: flex-end;
+  width: 572px;
+  display: inline-flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--light-bg-solid);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.cart__sumary div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cart__sumary p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cart__sumary p:last-child {
+  color: #747474;
+  font-weight: 700;
+}
+
+.cart-sumary__total {
+  border-top: 2px solid var(--primary-solid);
+  font-size: 20px;
+}
+.cart-sumary__total p {
+  font-size: 20px;
+}
+
+.cart-sumary__total p:first-child {
+  font-weight: 700;
+}
+
+/* Button */
+.cart__button {
+  align-self: flex-end;
+  width: 572px;
+  height: 68.656px;
+  flex-shrink: 0;
+  background: var(--primary-solid);
+  border: none;
+  color: var(--light-font-solid);
+  font-family: Inter;
+  font-size: var(--font-xlarge);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

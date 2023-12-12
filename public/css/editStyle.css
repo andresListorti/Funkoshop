@@ -1,0 +1,208 @@
+@import url(./baseStyle.css);
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  padding: var(--spacing-36) 0;
+}
+
+.content__title {
+  font-family: var(--alternative-font);
+  font-size: var(--font-jumbo);
+  font-weight: 700;
+  color: var(--dark-solid);
+}
+
+.content__filter {
+  display: flex;
+  gap: var(--spacing-20);
+}
+
+.content__list {
+  display: flex;
+  gap: var(--spacing-16);
+  align-items: center;
+}
+
+.content__category,
+.content__license {
+  font-family: var(--base-font);
+  font-size: var(--font-large);
+  font-weight: 300;
+  color: #000000;
+}
+
+.content__list--items {
+  border: none;
+  background-color: var(--light-bg-solid);
+  font-family: var(--base-font);
+  font-size: var(--font-medium);
+  font-weight: 500;
+  color: var(--dark-solid);
+  width: 245px;
+  height: 45px;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: var(--dark-bg-solid);
+  border-style: solid;
+  padding-left: var(--spacing-8);
+}
+
+.product {
+  display: flex;
+  padding: var(--spacing-20) 0;
+}
+
+.product__name {
+  font-family: var(--base-font);
+  font-size: var(--font-large);
+  font-weight: 400;
+  color: #000000;
+  margin-right: var(--spacing-16);
+  text-align: center;
+}
+
+.product__name--text {
+  border: none;
+  width: 296px;
+  outline: none;
+  border-bottom: solid var(--primary-solid) 2px;
+  font-family: var(--base-font);
+  font-size: var(--font-medium);
+  font-weight: 400;
+  color: var(--dark-solid);
+}
+
+textarea {
+ padding: var(--spacing-8);
+ font-family: var(--base-font);
+ font-size: var(--font-medium);
+ color: var(--dark-solid);
+}
+
+.description-product {
+  display: flex;
+  gap: var(--spacing-16);
+}
+
+.description-product__sku,
+.description-product__price,
+.description-product__stock,
+.promo__descuento,
+.promo__cuotas {
+  font-family: var(--base-font);
+  font-size: var(--font-large);
+  font-weight: 400;
+  color: #000000;
+  margin-right: var(--spacing-16);
+}
+
+.description-product__text,
+.description-product__price--text {
+  border: none;
+  width: 130px;
+  outline: none;
+  border-bottom: solid var(--primary-solid) 2px;
+  font-family: var(--base-font);
+  font-size: var(--font-medium);
+  font-weight: 400;
+}
+
+.description-product__stock--text,
+.promo__descuento--text {
+  border: none;
+  width: 55px;
+  outline: none;
+  border-bottom: solid var(--primary-solid) 2px;
+  font-family: var(--base-font);
+  font-size: var(--font-medium);
+  font-weight: 400;
+}
+
+.promo {
+  padding: var(--spacing-24) 0;
+}
+
+.promo__cuotas {
+  margin-left: 30px;
+}
+
+.promo-cuotas--items {
+  border: none;
+  background-color: var(--light-bg-solid);
+  font-family: var(--base-font);
+  font-size: var(--font-medium);
+  font-weight: 500;
+  color: var(--dark-solid);
+  width: 346px;
+  height: 45px;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: var(--dark-bg-solid);
+  border-style: solid;
+  padding-left: var(--spacing-8);
+}
+
+.promo__cuotas--item {
+  font-family: var(--base-font);
+  font-weight: 500;
+  color: var(--dark-solid);
+}
+
+.select-img {
+  display: flex;
+  align-items: center;
+}
+
+.select-img__text {
+  font-family: var(--base-font);
+  font-size: var(--font-large);
+  font-weight: 400;
+  color: #000000;
+}
+
+.select-img__button {
+  margin-left: 12px;
+}
+
+.imagenes {
+  display: flex;
+  gap: var(--spacing-36);
+  padding: var(--spacing-20) 0;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cover-img {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  border-bottom: solid var(--primary-solid);
+}
+
+.cover__text {
+  font-family: var(--alternative-font);
+  font-size: var(--font-medium);
+  font-weight: 500;
+}
+
+.button {
+  background-color: var(--primary-solid);
+  font-family: var(--base-font);
+  font-weight: 600;
+  font-size: var(--font-xsmall);
+  color: var(--light-font-solid);
+  border: none;
+  padding: var(--spacing-16) var(--spacing-36);
+  transition: background 0.3s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: var(--dark-bg-solid);
+}

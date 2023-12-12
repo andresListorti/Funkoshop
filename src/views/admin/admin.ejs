@@ -1,0 +1,55 @@
+<%- include('../partials/header') -%>
+
+  <!-- Inicio Main -->
+  <main class="admin container">
+    <aside class="header__search">
+      <img src="/img/icons/search_icon.svg" alt="Buscar">
+      <input type="text" placeholder="código, nombre o categoria">
+    </aside>
+    <section>
+      <aside class="header__section">
+        <h1>LISTADO DE PRODUCTOS</h1>
+        <div>
+          <span>AGREGAR</span>
+          <a href="/admin/create"> <button type="submit">
+            <img src="/img/icons/btn-plus.svg" alt="">
+          </button></a>
+        </div>
+      </aside>
+      <article>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Código</th>
+              <th>Nombre del Producto</th>
+              <th>Categoría</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><% items.forEach(item => { %>
+              <td><%= item.product_id %></td>
+              <td><%= item.sku %></td>
+              <td><%= item.product_name %></td>
+              <td><%= item.category_name %></td>
+             <td class="td_end">  <a href="/admin/edit/<%= item.product_id %>">
+                <img class="btn-action" src="../../img/icons/edit_pencil.svg" alt=""></a>
+                <form action="/admin/delete/<%= item.product_id %>?_method=DELETE" method="POST">
+                <button class="admin-table__btn-delete" type="submit">
+                  <img class="admin-table__btn-delete" src="../../img/icons/delete_trash.svg" alt=""> </button>
+              </form>
+            </td>
+            </tr>
+          </tbody>  <% }); %>
+        </table>
+      </article>
+    
+    </section>
+  </main>
+  <!-- Fin Main -->
+
+  <%- include('../partials/footer') -%>
+</body>
+<link rel="stylesheet" href="/css/adminStyle.css">
+</html>

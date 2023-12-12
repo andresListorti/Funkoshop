@@ -1,0 +1,48 @@
+<%- include('../partials/header') -%>
+    <!-- Inicio Main -->
+    <main class="cart container">
+      <h1 class="cart__title">CARRITO DE COMPRAS</h1>
+      <section class="cart__detail">
+        <table>
+          <thead>
+            <tr class="cart-detail__header">
+              <th>DETALLE DE PRODUCTO</th>
+              <th>CANTIDAD</th>
+              <th>TOTAL</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </section>
+      <h1 class="cart__title">RESUMEN</h1>
+      <section class="cart__sumary">
+        <div class="cart-sumary__line">
+          <p>CANTIDAD DE ELEMENTOS</p>
+          <p>3</p>
+        </div>
+        <div class="cart-sumary__line">
+          <p>SUBTOTAL</p>
+          <p id="subTotal_price">$ 5.399,97</p>
+        </div>
+        <div class="cart-sumary__line">
+          <p>ENVIO</p>
+          <p id="send_price">$ 0,00</p>
+        </div>
+        <div class="cart-sumary__total">
+          <p>TOTAL</p>
+          <p id="total_price">$ 5.399,97</p>
+        </div>
+      </section>
+      <button type="submit" class="cart__button">IR A PAGAR</button>
+    </main>
+    <!-- Fin Main -->
+
+    <%- include('../partials/footer') -%>
+    <script src="../../js/_funkoList.js"></script>
+    <script src="../../js/clientCart.js"></script>
+    <script type="module" src="../../js/cart.js"></script>
+    <link rel="stylesheet" href="/css/cartStyle.css">
+  </body>
+</html>

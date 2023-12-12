@@ -1,0 +1,109 @@
+<%- include('../partials/header') -%>
+
+  <!-- Inicio Main -->
+  <main class="content container">
+    <h3 class="content__title">EDITAR ITEM</h3>
+    <form class="edit__form" action="/admin/edit/<%= item.product_id %>?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded">
+    <div class="content__filter">
+      <div class="content__list">
+        <label for="category" class="content__category">Categoría:</label>
+        <select name="category" id="category" class="content__list--items">
+          <% categories.forEach((category, i) => { %>
+            <option <% if (item.category_id === i +1) { %>selected<% } %> value="<%= i+1%>"><%= category.category_name%></option>
+        <% }); %>
+        </select>
+      </div>
+      <div class="content__list">
+        <label for="licence" class="content__license">Licencia:</label>
+        <select name="licence" id="licence" class="content__list--items">
+          <% licences.forEach((licence, i) => { %>
+            <option <% if (item.licence_id === i +1) { %>selected<% } %> value="<%= i+1%>"><%= licence.licence_name%></option>
+        <% }); %>
+        </select>
+      </div>
+    </div>
+    <div class="product">
+      <label for="name" class="product__name">Nombre del producto:</label>
+      <input class="product__name--text" type="text" name="name" id="name" value="<%= item.product_name %>"/>
+    </div>
+    <textarea name="description" id="description" cols="60" rows="10"><%= item.product_description %> </textarea>
+    <div class="description-product">
+      <div>
+        <label class="description-product__sku" for="sku">SKU:</label>
+        <input
+          class="description-product__text"
+          type="text"
+          id="sku"
+          name="sku"
+          value="<%= item.sku %>"
+        />
+      </div>
+      <div>
+        <label class="description-product__price" for="price">Precio:</label>
+        <input
+          class="description-product__price--text"
+          type="text"
+          id="price"
+          name="price" 
+          value= value="<%= item.price %>"
+          />
+      </div>
+      <div>
+        <label class="description-product__stock" for="stock">Stock:</label>
+        <input
+          class="description-product__stock--text"
+          type="text"
+          id="stock"
+          name="stock" 
+          value="<%= item.stock %>"
+        />
+      </div>
+    </div>
+    <div class="promo">
+      <label class="promo__descuento" for="discount">Descuento:</label>
+      <input
+        class="promo__descuento--text"
+        type="text"
+        id="discount"
+        name="discount" 
+        value="<%= item.discount %>"
+      />
+      <label class="promo__cuotas" for="dues">Cuotas:</label>
+      <select class="promo-cuotas--items" name="dues" id="dues">
+        option <% if (item.dues === 0) { %>selected<% } %> value="0">Sin cuotas</option>
+                  <option <% if (item.dues === 3) { %>selected<% } %> value="3">3 cuotas s/ interés</option>
+                  <option <% if (item.dues === 6) { %>selected<% } %> value="6">6 cuotas s/ interés</option>
+                  <option <% if (item.dues === 9) { %>selected<% } %> value="9">9 cuotas s/ interés</option>
+                  <option <% if (item.dues === 12) { %>selected<% } %> value="12">12 cuotas s/ interés</option>
+                  <option <% if (item.dues === 18) { %>selected<% } %> value="18">18 cuotas s/ interés</option>
+                  <option <% if (item.dues === 24) { %>selected<% } %> value="24">24 cuotas s/ interés</option>
+      </select>
+    </div>
+
+    <div class="select-img">
+      <label class="select-img__text" for="images">Imágenes:</label>
+     <!-- <input class="select-img__button" type="file" name="images"/>-->
+    </div>
+    <div class="imagenes">
+      <picture class="cover">
+        <img class="cover-img" src="/img<%= item.image_front %>" alt="<%= item.product_name %>">
+        <figcaption class="cover__text">Frente</figcaption>
+      </picture>
+      <picture class="cover">
+        <img
+          class="cover-img" src="/img<%= item.image_back %>" alt="<%= item.product_name %> en caja"
+        />
+        <figcaption class="cover__text">Dorso</figcaption>
+      </picture>
+    </div>
+    <div>
+      <button class="button" type="submit" value="modificar_producto">Modificar Producto</button>
+    </div>
+  </form>
+  </main>
+  <!-- Fin Main -->
+
+  <%- include('../partials/footer') -%>
+</body>
+<link rel="stylesheet" href="/css/editStyle.css">
+</html>

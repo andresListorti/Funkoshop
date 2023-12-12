@@ -1,0 +1,110 @@
+<%- include('../partials/header') -%>
+
+  <!-- Inicio Main -->
+  <main class="content container">
+    <h3 class="content__title">CREAR NUEVO ITEM</h3>
+    <div class="content__filter">
+    <div class="content__filter">
+    <form class="create__form" action="/admin/create" method="POST" enctype="multipart/form-data">>
+    <div class="content__filter">
+      <div class="content__list">
+        <label for="category" class="content__category">Categoría:</label>
+        <select name="category" id="category" class="content__list--items_create" required>
+          <option value="" disabled selected hidden>Seleccionar</option>
+          <% categories.forEach((category, i) => { %>
+            <option value="<%= i+1%>"><%= category.category_name%></option>
+          <% }); %>
+        </select>
+      </div>
+      <div class="content__list">
+        <label for="collection" class="content__license">Licencia:</label>
+        <select name="collection" id="collection" class="content__list--items_create" required>    
+          <option value="" disabled selected hidden>Seleccionar</option>
+          <% licences.forEach((licence, i) => { %>
+            <option value="<%= i+1%>"><%= licence.licence_name%></option>
+            <% }); %>
+        </select> 
+      </div>
+    </div>
+    <div class="product">
+      <label for="name" class="product__name">Nombre del producto:</label>
+      <input class="product__name--text_create" name="name" id="name" type="text" placeholder="Kakashi Hatake Shippuden Saga"required>
+    </div>
+    <textarea class="product__desctription--text_create" name="description" id="description" cols="60" rows="10" required>Descripción del producto</textarea>
+    <div class="description-product">
+      <div>
+        <label class="description-product__sku" for="sku">SKU:</label>
+        <input
+          class="description-product__sku--text_create"
+          type="text"
+          id="sku"
+          name="sku"
+          placeholder="SSK111AB001"
+          required
+        />
+      </div>
+      <div>
+        <label class="description-product__price" for="price">Precio:</label>
+        <input
+          class="description-product__price--text_create"
+          type="text"
+          id="price"
+          name="price" 
+          placeholder="$ 0.000,00"
+          required
+        />
+      </div>
+      <div>
+        <label class="description-product__stock" for="stock">Stock:</label>
+        <input
+          class="description-product__stock--text_create"
+          type="text"
+          id="stock"
+          name="stock" 
+          placeholder="0"
+          required
+        />
+      </div>
+    </div>
+    <div class="promo">
+      <label class="promo__descuento" for="discount">Descuento:</label>
+      <input
+        class="promo__descuento--text"
+        type="text"
+        id="discount"
+        name="discount"
+        placeholder="0"
+        required
+      />
+      <label class="promo__cuotas" for="dues">Cuotas:</label>
+      <select class="promo-cuotas--items" name="dues" id="dues">
+        <option class="promo__cuotas--item" value="3">
+          3 cuotas sin interés
+        </option>
+        <option class="promo__cuotas--item" value="6">
+          6 cuotas sin interés
+        </option>
+        <option class="promo__cuotas--item" value="12">
+          12 cuotas sin interés
+        </option>
+      </select>
+    </div>
+
+    <div class="select-img">
+      <label class="select-img__text" for="images">Imágenes:</label>
+     <!-- <input class="select-img__button" type="file" name="images" id="images" multiple>-->
+    </div>
+    <div class="imagenes">
+      <div class="form__flex">
+        <input class="button" type="submit" value="Agregar Producto">
+        <input class="button" type="reset" value="Limpiar">
+    </div>
+    </div>
+    </form>
+  </main>
+  <!-- Fin Main -->
+
+  <%- include('../partials/footer') -%>
+</body>
+<link rel="stylesheet" href="/css/createStyle.css">
+</html>
