@@ -11,20 +11,19 @@ const authControllers ={
         // console.log(valido) --> de aca llega una matriz dificil de recorrer por eso debo deconstruyo con [valido] 
         if (valido == undefined){ 
             res.redirect('/login/?error=1');
-        } else{
+        }else{
             req.session.userid = valido.user_id; //guardo id como sesion, el session no es parte de request debo crear la session
             console.log(req.session.userid);
-            if(req.session.userid) {res.locals.logeado = true }
             res.redirect(`/admin?user=${valido.user_id}`,);
           
     }
         
     },
 
-           
     registerView:  (req, res) =>{
         //if(req.session.userid) {logeado = true }{ res.reder('/auth/register',{view :{ title: 'Register', logeado}})}
-       res.render('./auth/register', {view : {title: 'Register'}})
+       res.render('./auth/register', {view :
+         {title: 'Register', logged: req.session.userid}})
     },
   
      registerUser: async(req, res) => {
@@ -33,7 +32,6 @@ const authControllers ={
           lastname : req.body.apellido,
           email : req.body.email,
           password: req.body.pass};
-
           const creado = await modelsUser.crearUser(userSchema)
           res.render('./auth/login',  {view: {title : "Login"}})
      },

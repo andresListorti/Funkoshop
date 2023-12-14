@@ -1,38 +1,38 @@
-const product = require('../models/product.js');
 const modelsProduct = require ('../models/product.js')
 
 const shopControllers = {
     View: async (req, res) => {
-      const items = await modelsProduct.getAll();
+      const items = await modelsProduct.getAllItems();
+      const products = await modelsProduct.getProduct();
       const { data } = items;
       res.render( './shop/shop',{
         view: {
-          title: "Shop | Funkoshop"
+          title: "Shop | Funkoshop",
+          h2: "Ultimos lanzamientos",
         },
-        items: data
+        items: data,
+        products
       });
     },
     
 
-    itemView: async(req, res) => { 
+    itemView : async (req, res) => {
       const id = req.params.id;
-      const item = await product.getOneItem({product_id: id});
-      const { data } = item;
+      const [item] = await modelsProduct.getItem(id);
+      const products = await modelsProduct.getProduct();
+  
+      res.render('./shop/item', {
+        view: {
+          title: "Item | Funkoshop"
+        },
+        item,
+        products,
+      });
+    },
 
-       if (!data[0]) {
-          res.status(404).send('El producto con el ID seleccionado no existe o fue eliminado');
-       }
-
-       res.render('./shop/item', {
-       view: {
-         title: "Item | Funkoshop"
-       },
-       item: data[0],
-    });
-  },
     addItemToCart: (req, res) => res.render('./shop/cart', {view: {title : "Add Item"}}),
     cartView: (req, res) => res.render('./shop/cart',{ view : {title : "Cart"}}),
-    checkout: (req, res) => res.send('Route for got to checkout page', {title : "Checkout"}),
+    checkout: (req, res) => res.render('./shop/cart', {title : "Checkout"}),
   };
 
   module.exports = shopControllers;

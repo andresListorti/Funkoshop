@@ -3,7 +3,7 @@ const modelsProduct = require ('../models/product.js')
 
 const adminControllers = {
     adminView: async (req, res) => {
-      const {data}  = await modelsProduct.getAll();
+      const {data}  = await modelsProduct.getAllItems();
       res.render( './admin/admin',
       {
         view: {

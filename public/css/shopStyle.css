@@ -269,3 +269,7 @@ iconify-icon {
 .collection__link:hover {
   background-color: var(--primary-900);
 }
+
+.glide__arrows{
+  display: none;
+}

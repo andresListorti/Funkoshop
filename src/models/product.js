@@ -1,6 +1,17 @@
 const { conn } = require('../config/conn');
 
-const getAll = async () => {
+const getProduct = async () => {
+  try {
+    const [rows] = await conn.query('SELECT * FROM product;')
+      return rows
+  	} catch (error) {
+	  	throw error
+	  } finally {
+		conn.releaseConnection();
+	}
+}
+
+const getAllItems = async () => {
   try {
     const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id;');
     const response = {
@@ -21,26 +32,20 @@ const getAll = async () => {
   }
 }
 
-const getOneItem = async (params) => {
+
+
+const getItem = async(id) => {
   try {
-    const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id WHERE ?;', params);
-    const response = {
-      isError: false,
-      data: rows
-    };
-
-    return response;
-  } catch (e) {
-    const error = {
-      isError: true,
-      message: `No pudimos recuperar los datos.`
-    };
-
-    return error;
-  } finally {
-    await conn.releaseConnection();
-  }
+    const [rows] = await conn.query(`SELECT * FROM product INNER JOIN licence ON product.licence_id= licence.licence_id where product_id='${id}'`);
+    return rows
+  }catch (error) {
+		throw error
+	} finally {
+		conn.releaseConnection()
+    }
 }
+
+
 
 const create = async (params) => {
   try {
@@ -57,7 +62,7 @@ const edit = async (params, id) => {
   try {
 
     const [rows] = await conn.query('UPDATE product SET ? WHERE ?;', [params, {product_id: id}]);
-    console.log(rows);
+    //console.log(rows);
     const response = {
       isError: false,
       message: `El item fue modificado exitosamente.`
@@ -101,25 +106,16 @@ const deleteOne = async (params) => {
 
 //traigo todas las licencias para usar en controller admin
 const getAllLicence = async () => {
-  try {
-    const [rows] = await conn.query('SELECT * FROM licence;');
-    const response = {
-      isError: false,
-      data: rows
-    };
-
-    return response;
-  } catch (e) {
-    const error = {
-      isError: true,
-      message: `No pudimos recuperar los datos ${e}.`
-    };
-
-    return error;
-  } finally {
-    await conn.releaseConnection();
-  }
+	try {
+		const [rows] = await conn.query('SELECT * FROM licence');
+		return rows
+	} catch (error) {
+		throw error
+	} finally {
+		conn.releaseConnection()
+	}
 }
+
 
 //traigo todas las categorias para usar en controller admin
 const getAllCategory = async () => {
@@ -144,11 +140,12 @@ const getAllCategory = async () => {
 }
 
 module.exports = {
-  getAll,
-  getOneItem,
+  getAllItems,
+  getItem,
   create,
   edit,
   deleteOne,
   getAllLicence,
   getAllCategory,
+  getProduct,
 };

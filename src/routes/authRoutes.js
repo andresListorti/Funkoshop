@@ -10,15 +10,14 @@ const loginValidation = [
     .isEmail()
     .withMessage('Debe ingresar un correo válido'),
     body('pass')
-     .isLength({ min: 6})
-     .isAlphanumeric()
-     .withMessage('La contraseña debe tener al menos 6 caracteres y contener letras y números.')
+     .isLength({ min: 6}).withMessage('La contraseña debe tener al menos 6 caracteres y contener letras y números.')
+     .isAlphanumeric().withMessage('Ingrese una contraseña valida')
+    
   ];
 
   const registerValidation = [
     body("email")
-	  .isEmail()
-    .withMessage('Debe ingresar un correo válido')
+	.isEmail().withMessage('Debe ingresar un correo válido')
   	.bail() //corta la ejecucion porque si ya hay error no conecto con bd
 	  .custom((value, {req}) => {
 			return new Promise(async (resolve, reject) => {
@@ -35,10 +34,9 @@ const loginValidation = [
 			})
 		})
 	  .withMessage("Email ya registrado, por favor ingrese otra direccion"),
-	   body('pass2')
-     .isLength({ min: 6})
-     .isAlphanumeric()
-	  .withMessage('Ingrese una contraseña valida')
+	   body('pass')
+     .isLength({ min: 6}).withMessage('Ingrese al menos 6 caracteres')
+     .isAlphanumeric().withMessage('Ingrese una contraseña valida')
 	  .custom((value, {req}) => value === req.body.pass2)
 	  .withMessage('Las contraseñas no coinciden')
 	]

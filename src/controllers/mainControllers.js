@@ -2,15 +2,20 @@ const modelsProduct = require ('../models/product.js')
 
 const mainControllers = {
   home: async(req, res) => {
-    const licences = await modelsProduct.getAllLicence();
+    const collections = await modelsProduct.getAllLicence();
+    const products = await modelsProduct.getProduct();
     res.render('index', {
       view: {
-        title: "Home | Funkoshop"
+        title: "Home | Funkoshop", 
+        h2 : "Ultimos Lanzamientos",
       },
-      collections: licences.data,
+      collections,
+      products,
+     
     });
   },
-  contact:(req, res) =>  res.send('Contact View Route' ,{view: {title : "Contacto"}}),
+  contact:(req, res) => { res.render('./contact' ,{view: {title : "Contacto"}})},
+
   about:(req, res) =>  res.send('About View Route', {view: {title : "About"}}),
   faqs:(req, res)  => res.send('FAQs View Route', {view: {title : "Faqs"}}),
 };

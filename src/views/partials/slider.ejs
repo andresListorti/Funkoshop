@@ -1,0 +1,40 @@
+<div class="glide__track" data-glide-el="track">
+  <ul class="slider__items glide__slides"> 
+     <% products.forEach( product => { %>
+    <li class="slider__item glide__slide">
+      <article class="card-item">
+              <a id="funko_1" class="card-item__link" href="/shop/item/<%=product.product_id %>">
+                <picture class="card-item__cover"> 
+                  <span class="card-item__tag">Nuevo</span>
+                  <img
+                    class="card-item__img--front"
+                    src="/img<%= product.image_front %>"
+                    alt="SW Trooper 1"
+                  />
+                  <img
+                    class="card-item__img--back"
+                    src="/img<%=product.image_back %>"
+                    alt="SW Trooper box"
+                  />
+                </picture> 
+                <div class="card-item__content">
+                  <p class="card-item__licence"><%=product.licence_name %></p>
+                  <h4 class="card-item__name"><%=product.product_name %></h4>
+                  <p class="card-item__price">$ <%=product.price %></p>
+                  <p class="card-item__promo"><%=product.dues %> cuotas sin interes</p>
+                </div>     
+              </a>
+            </article>
+          </li><% }); %>
+        </ul>
+      </div>   
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+          <iconify-icon icon="mdi:chevron-left"></iconify-icon>
+        </button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+          <iconify-icon icon="mdi:chevron-right"></iconify-icon>
+        </button>
+      </div>
+    </section> 
+  </main>
