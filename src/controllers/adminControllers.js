@@ -49,18 +49,18 @@ const adminControllers = {
 
     editView:  async (req, res) => {
       const id = req.params.id;
-      const { data: categories } = await modelsProduct.getAllCategory();
-      const { data: licences } = await modelsProduct.getAllLicence();
+      const categories = await modelsProduct.getAllCategory();
+      const licences = await modelsProduct.getAllLicence();
       const [item] = await modelsProduct.getItem(id);
       //console.log(categories, licences);
       res.render('./admin/edit', {
         view: {
-          title: `Edit Product #${id} | Admin Funkoshop`
+          title: `Edit Product #${id} | Admin Funkoshop`,
+          logged: req.session.userid,
         },
         item: item,
         categories,
         licences,
-        logged: req.session.userid
       });
     },
 

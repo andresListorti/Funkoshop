@@ -8,8 +8,8 @@
       <div class="content__list">
         <label for="category" class="content__category">Categoría:</label>
         <select class="form__select" name="category" id="category" required>
-          <% categories.forEach((category, i) => { %>
-            <option <% if (item.category_id === i +1) { %>selected<% } %> value="<%= i+1%>"><%= category.category_name%></option>
+          <% categories.forEach((category, i) =>{ %>
+            <option <% if (item.category_id === i +1) { %>selected<% } %> value="<%= i+1 %>"><%= category.category_name%></option>
         <% }); %>
         </select>
       </div>

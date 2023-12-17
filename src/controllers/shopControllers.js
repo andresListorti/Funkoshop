@@ -34,7 +34,7 @@ const shopControllers = {
 
     addItemToCart: (req, res) => res.render('./shop/cart', {view: {title : "Add Item"}}),
     cartView: (req, res) => res.render('./shop/cart',{ view : {title : "Cart"}}),
-    checkout: (req, res) => res.render('./shop/cart', {title : "Checkout"}),
+    checkout: (req, res) => res.render('./shop/cart', {view: {title : "Checkout"}}),
   };
 
   module.exports = shopControllers;

@@ -17,12 +17,12 @@
         <h3 class="item__name"><%=item.product_name %></h3>
         <p class="item__description"><%=item.product_description %></p>
         <p class="item__price"><%=item.price %></p>
-        <form class="item__cart" action="" method="POST" enctype="application/x-www-form-urlencoded">
             <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
             <button id="subtract" class="item__quantity" type="button">-</button>
             <button id="add" class="item__quantity" type="button">+</button>
+            <a href="/shop/cart">
             <button class="item__submit btn btn--primary btn--medium" type="submit" id="button">Agregar al carrito</button>
-        </form>
+             </a>
         <p class="item__promo"><a href="">Ver métodos de pago</a> 3 CUOTAS SIN INTERÉS</p>
         </article>
         </section>

@@ -11,17 +11,20 @@ form {
     margin-bottom: 10px;
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
   }
   
   input, textarea
    {
-    width: 100%;
+    width: 50%;
     padding: 12px 20px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 16px;
+    margin-left: 300px;
+
   }
   
   input[type="submit"] {
@@ -38,3 +41,15 @@ form {
     color: black;
   }
 
+h1{
+  font-family: var(--alternative-font);
+  font-size: var(--font-jumbo);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  padding-bottom: var(--spacing-8);
+  border-bottom: 5px solid var(--primary-solid);
+  align-self: flex-end;
+  text-align: center;
+}
