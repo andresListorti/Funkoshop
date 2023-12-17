@@ -13,7 +13,7 @@ const authControllers ={
             res.redirect('/login/?error=1');
         }else{
             req.session.userid = valido.user_id; //guardo id como sesion, el session no es parte de request debo crear la session
-            console.log(req.session.userid);
+           // console.log(req.session.userid);
             res.redirect(`/admin?user=${valido.user_id}`,);
           
     }
@@ -33,7 +33,7 @@ const authControllers ={
           email : req.body.email,
           password: req.body.pass};
           const creado = await modelsUser.crearUser(userSchema)
-          res.render('./auth/login',  {view: {title : "Login"}})
+          res.render('./auth/login',  {view: {title : "Login", logged: req.session.userid}})
      },
 
     logoutView: (req,res) =>{ 
