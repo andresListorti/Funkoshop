@@ -7,19 +7,21 @@ const adminControllers = {
       res.render( './admin/admin',
       {
         view: {
-          title: 'List of Products | Admin Funkoshop'
+          title: 'List of Products | Admin Funkoshop',
+          logged: req.session.userid
         },
         items: data
       });
     },
 
     createView:  async (req, res) =>{
-      const { data: categories } = await modelsProduct.getAllCategory();
-      const { data: licences } = await modelsProduct.getAllLicence();
+      const categories  = await modelsProduct.getAllCategory();
+      const licences  = await modelsProduct.getAllLicence();
   
       res.render('./admin/create', {
         view: {
-          title: 'Create Product | Admin Funkoshop'
+          title: 'Create Product | Admin Funkoshop',
+          logged: req.session.userid
         },
         categories,
         licences
@@ -49,15 +51,16 @@ const adminControllers = {
       const id = req.params.id;
       const { data: categories } = await modelsProduct.getAllCategory();
       const { data: licences } = await modelsProduct.getAllLicence();
-      const { data } = await modelsProduct.getOneItem({product_id: id})
+      const [item] = await modelsProduct.getItem(id);
       //console.log(categories, licences);
       res.render('./admin/edit', {
         view: {
           title: `Edit Product #${id} | Admin Funkoshop`
         },
-        item: data[0],
+        item: item,
         categories,
-        licences
+        licences,
+        logged: req.session.userid
       });
     },
 
