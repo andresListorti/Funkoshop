@@ -3,11 +3,11 @@
   <!-- Inicio Main -->
   <main class="content container">
     <h3 class="content__title">EDITAR ITEM</h3>
-    <form class="edit__form" action="/admin/edit/<%= item.product_id %>?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded">
+    <form class="edit__form" action="/admin/edit/<%= item.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
     <div class="content__filter">
       <div class="content__list">
         <label for="category" class="content__category">Categoría:</label>
-        <select name="category" id="category" class="content__list--items">
+        <select class="form__select" name="category" id="category" required>
           <% categories.forEach((category, i) => { %>
             <option <% if (item.category_id === i +1) { %>selected<% } %> value="<%= i+1%>"><%= category.category_name%></option>
         <% }); %>
@@ -45,7 +45,7 @@
           type="text"
           id="price"
           name="price" 
-          value= value="<%= item.price %>"
+          value="<%= item.price %>"
           />
       </div>
       <div>
@@ -70,7 +70,7 @@
       />
       <label class="promo__cuotas" for="dues">Cuotas:</label>
       <select class="promo-cuotas--items" name="dues" id="dues">
-        option <% if (item.dues === 0) { %>selected<% } %> value="0">Sin cuotas</option>
+       <option <% if (item.dues === 0) { %>selected<% } %> value="0">Sin cuotas</option>
                   <option <% if (item.dues === 3) { %>selected<% } %> value="3">3 cuotas s/ interés</option>
                   <option <% if (item.dues === 6) { %>selected<% } %> value="6">6 cuotas s/ interés</option>
                   <option <% if (item.dues === 9) { %>selected<% } %> value="9">9 cuotas s/ interés</option>
