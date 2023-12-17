@@ -60,28 +60,23 @@ const create = async (params) => {
 
 const edit = async (params, id) => {
   try {
-
-    const [rows] = await conn.query('UPDATE product SET ? WHERE ?;', [params, {product_id: id}]);
-    //console.log(rows);
-    const response = {
-      isError: false,
-      message: `El item fue modificado exitosamente.`
-    };
-
-    return response;
-  } catch (e) {
-    console.log(e);
-    const error = {
-      isError: true,
-      message: `No pudimos modificar el item seleccionado, error: ${e}`
-    };
-
-    return error;
-  } finally {
-    await conn.releaseConnection();
-  }
-};
-
+	const [rows] = await conn.query('UPDATE product SET ? WHERE ?;', [params, {product_id: id}]);
+	const response = {
+		isError: false,
+		message: `El item fue modificado exitosamente.`,
+	  };
+  		return response;
+	} catch (e) {
+	  const error = {
+		isError: true,
+		message: `No pudimos modificar el item seleccionado, error: ${e}`
+	  };
+  
+	  return error;
+	} finally {
+	  await conn.releaseConnection();
+	}
+  };
 const deleteOne = async (params) => {
   try {
     const [rows] = await conn.query('DELETE FROM product WHERE ?;', params);
@@ -105,37 +100,27 @@ const deleteOne = async (params) => {
 }
 
 //traigo todas las licencias para usar en controller admin
-const getAllLicence = async () => {
-	try {
-		const [rows] = await conn.query('SELECT * FROM licence');
-		return rows
-	} catch (error) {
-		throw error
-	} finally {
-		conn.releaseConnection()
-	}
+const getAllLicence = async() => {
+  try {
+      const [rows] = await conn.query('SELECT * FROM licence;');
+       return rows
+  } catch (error) {
+  throw error
+} finally {
+  conn.releaseConnection()
+  }
 }
 
 
 //traigo todas las categorias para usar en controller admin
-const getAllCategory = async () => {
+const getAllCategory= async() => {
   try {
-    const [rows] = await conn.query('SELECT * FROM category;');
-    const response = {
-      isError: false,
-      data: rows
-    };
-
-    return response;
-  } catch (e) {
-    const error = {
-      isError: true,
-      message: `No pudimos recuperar los datos ${e}.`
-    };
-
-    return error;
-  } finally {
-    await conn.releaseConnection();
+      const [rows] = await conn.query('SELECT * FROM category;');
+       return rows
+  } catch (error) {
+  throw error
+} finally {
+  conn.releaseConnection()
   }
 }
 
