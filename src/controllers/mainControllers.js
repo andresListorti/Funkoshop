@@ -8,13 +8,15 @@ const mainControllers = {
       view: {
         title: "Home | Funkoshop", 
         h2 : "Ultimos Lanzamientos",
+        logged: req.session.userid
+  });
       },
       collections,
       products,
      
     });
   },
-  contact:(req, res) => { res.render('./contact' ,{view: {title : "Contacto"}})},
+  contact:(req, res) => { res.render('./contact' ,{view: {title : "Contacto",logged: req.session.userid}})},
 
   about:(req, res) =>  res.send('About View Route', {view: {title : "About"}}),
   faqs:(req, res)  => res.send('FAQs View Route', {view: {title : "Faqs"}}),
