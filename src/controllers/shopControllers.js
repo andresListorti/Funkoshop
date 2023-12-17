@@ -11,7 +11,8 @@ const shopControllers = {
           h2: "Ultimos lanzamientos",
         },
         items: data,
-        products
+        products,
+        logged: req.session.userid,
       });
     },
     
@@ -27,6 +28,7 @@ const shopControllers = {
         },
         item,
         products,
+        logged: req.session.userid,
       });
     },
 
