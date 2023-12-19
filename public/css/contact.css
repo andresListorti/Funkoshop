@@ -53,3 +53,7 @@ h1{
   align-self: flex-end;
   text-align: center;
 }
+
+@media (max-width: 600px) {
+  
+}
