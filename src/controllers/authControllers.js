@@ -36,9 +36,9 @@ const authControllers ={
           res.render('./auth/login',  {view: {title : "Login", logged: req.session.userid}})
      },
 
-    logoutView: (req,res) =>{ 
-        req.session = null;
-        res.redirect('/', {view: {title : "Logout"}})}
-}
+   
+     logoutView: (req,res) =>{
+        req.session.userid = undefined;
+        res.redirect('/')}
 
 module.exports = authControllers;
