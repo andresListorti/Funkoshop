@@ -67,20 +67,35 @@ const adminControllers = {
     editItem: async (req, res) => {
       const id = req.params.id;
       const item = req.body;
-      const itemSchema = {
-        product_name: item.name,
-        product_description: item.description,
-        price: item.price,
-        stock: item.stock,
-        discount: item.discount,
-        dues: item.dues,
-        image_front: '/imagen_front',
-        image_back: '/imagen_back',
-        licence_id: item.licence,
-        category_id: item.category
+      const file = req.file
+      if(!file){
+        const itemSchema = {
+          product_name: item.name,
+          product_description: item.description,
+          price: item.price,
+          stock: item.stock,
+          discount: item.discount,
+          dues: item.dues,
+          licence_id: item.collection,
+          category_id: item.category,
       }
-  
-      await modelsProduct.edit(itemSchema,id);
+      const resultado = await modelsProduct.edit(itemSchema,id);
+    }
+      else{
+        const itemSchema = {
+          product_name: item.name,
+          product_description: item.description,
+          price: item.price,
+          stock: item.stock,
+          discount: item.discount,
+          dues: item.dues,
+          image_front: '/'+req.files[0].filename,
+          image_back: '/'+req.files[1].filename,
+          licence_id: item.collection,
+          category_id: item.category
+      }
+      const resultado = await modelsProduct.edit(itemSchema,id);}
+     
       res.redirect('/admin');
     },
 
