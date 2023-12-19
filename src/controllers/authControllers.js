@@ -40,5 +40,5 @@ const authControllers ={
      logoutView: (req,res) =>{
         req.session.userid = undefined;
         res.redirect('/')}
-
+}
 module.exports = authControllers;
