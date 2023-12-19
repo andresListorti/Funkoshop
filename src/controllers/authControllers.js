@@ -37,7 +37,7 @@ const authControllers ={
      },
 
    
-     logoutView: (req,res) =>{
+       logoutView: (req,res) =>{
         req.session.userid = undefined;
         res.redirect('/')}
 }
